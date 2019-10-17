@@ -19,19 +19,21 @@ const eqArrays = function(array1, array2) {
 
 
 const eqObjects = function(object1, object2) {
-  if (Object.keys(object1).length !== Object.keys(object2).length) {
+  let obj1 = Object.keys(object1)
+  let obj2 = Object.keys(object2)
+  if (obj1.length !== obj2.length) {
     return false;
   } else {
-    for (let key in object1) {
-      if (Array.isArray(object1[key])) {
-        if (eqArrays(object1[key], object2[key]) === false) {
+    for (let key in obj1) {
+      if (Array.isArray(obj1[key])) {
+        if (eqArrays(obj1[key], obj2[key]) === false) {
           return false;
         }
-      } else if (typeof object1[key] === 'object') {
-        if (eqObjects(object1[key], object2[key]) === false) {
+      } else if (typeof obj1[key] === 'object') {
+        if (eqObjects(obj1[key], obj2[key]) === false) {
           return false;
         }
-      } else if (object1[key] !== object2[key]) {
+      } else if (obj1[key] !== obj2[key]) {
         return false;
       }
     }
