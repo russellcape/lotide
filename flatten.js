@@ -15,15 +15,15 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 
-const flatten = function(srcArray) {
+const flatten = function(array) {
   let resultsArray = [];
-  for (let i = 0; i < srcArray.length; i++) {
-    if (Array.isArray(srcArray[i])) {
-      for (let j = 0; j < srcArray[i].length; j++) {
-        resultsArray.push(srcArray[i][j]);
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      for (let j = 0; j < array[i].length; j++) {
+        resultsArray.push(array[i][j]);
       }
     } else {
-      resultsArray.push(srcArray[i]);
+      resultsArray.push(array[i]);
     }
   }
   return resultsArray;
